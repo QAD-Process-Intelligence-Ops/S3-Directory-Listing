@@ -1,13 +1,13 @@
 // S3 bucket name
-const bucketName = 's3-directory-listing';
-const s3Domain = 's3.amazonaws.com';
+const bucketName = 'cypress-reports';
+const s3Domain = 'livejourney.io';
 
 const objectList = document.getElementById('object-list');
 const breadcrumb = document.getElementById('breadcrumb');
 const searchInput = document.getElementById('search');
 const loading = document.getElementById('loading');
 const errorAlert = document.getElementById('error');
-const itemsPerPage = 10;
+const itemsPerPage = 100;
 
 let totalPages = 0;
 let currentPage = 1;
@@ -97,7 +97,8 @@ function listObjects(path) {
   loading.classList.remove('d-none');
   errorAlert.classList.add('d-none');
 
-  fetch(url)
+  fetch(url, {headers : {'metadata':'true'}})
+  //fetch(url)
     .then((response) => {
       if (!response.ok) {
         throw new Error(`Error fetching objects: ${response.status}`);
