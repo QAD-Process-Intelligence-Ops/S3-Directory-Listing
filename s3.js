@@ -33,7 +33,10 @@ function createDownloadLink(key) {
     textSpan.textContent = key.slice(0, -1).split('/').pop();
   } else {
     textSpan.textContent = key.split('/').pop();
-    link.setAttribute('download', '');
+    link.setAttribute("method","get");
+    link.setAttribute("target","_blank");
+    link.setAttribute("action",link.href);
+    //link.setAttribute('download', '');
   }
 
   // Append the icon and the text span to the link
