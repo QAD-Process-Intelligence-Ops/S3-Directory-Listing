@@ -157,7 +157,7 @@ objectList.innerHTML = '';
 
       displayedKeys.forEach((keyElement) => {
         const key = keyElement.textContent;
-        if (key === 'index.html' || key === 's3.js' || key === 'dark-mode.css' || key === path) {
+        if (key === 'index.html' || key === 's3.js' || key === 'dark-mode.css' || key === 'cypress.svg' || key === path) {
           return;
         }
 
